@@ -122,8 +122,8 @@ Vue.component('product', {
 Vue.component('product_tabs', {
   props: {
     reviews: {
-      type: Array, 
-      required: true,
+      type: Array,
+      required: false,
     }
   },
   template: `
@@ -151,7 +151,7 @@ Vue.component('product_tabs', {
       </div>
 
       <div v-show="selectedTab === 'Make a Reviews'">
-        <product_review />
+        <product_review></product_review>
       </div>
 
     </div>
@@ -223,7 +223,7 @@ Vue.component('product_review', {
         this.review = null
         this.rating = null
       } else {
-        if (!this.name)  this.errors.push('Name req!')
+        if (!this.name) this.errors.push('Name req!')
         if (!this.review) this.errors.push('review req!')
         if (!this.rating) this.errors.push('rating req!')
       }
@@ -231,6 +231,7 @@ Vue.component('product_review', {
   }
 }
 )
+
 // КОРЕНЬ ПРОЕКТА
 var app = new Vue({
   el: '#app',
